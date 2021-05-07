@@ -1,0 +1,31 @@
+doctype html 
+html
+   head 
+     meta(charset='UTF-8')
+     meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+     link(rel="stylesheet", href="../style.css")
+     title #{title}
+    
+   body
+     header
+        h1 Cafe Schedule Website 
+        img(src = "logo_mrcoffee.png")
+        block content
+         div.text-center
+          form( class= 'form-signup',action='http://localhost:3000/signup', method='POST') 
+            p| First Name
+            input(name='firstname', value='', type='text')
+            p| Last Name 
+            input(name='surname', value='', type='text')
+            p| Email Address
+            input(name='email', value='', type='email')
+            p| Password 
+            input(name='password', value='', type='password')
+            p| Confirm password 
+            input(name='confirmPassword', value='', type='password')
+            p|
+            button(class ='signup',type='submit') Sign Up
+            p
+             a(href ="/",id='signup')
+              col-md-3 Login
+         

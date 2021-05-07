@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+  div.text-center(class ='user-form')
+    form(action='http://localhost:3000/user/new', method='POST')
+        label(for='firstname') First Name:
+        input(name='firstname', value='', type='text')
+        p|
+        label(for='surname') Surname:
+        input(name='surname', value='', type='text')
+        p|
+        label(for='email') Email :
+        input(name='email', value='', type='email')
+        p|
+        label(for='password') Password:
+        input(name='password',value='', type='password')
+        p|
+        button(type='Submit') Submit
