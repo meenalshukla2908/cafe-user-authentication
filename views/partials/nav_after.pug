@@ -4,24 +4,18 @@ html
      meta(charset='UTF-8')
      meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
      link(rel="stylesheet", href="../style.css")
- 
- 
+
    body 
       header
         h1 Cafe Schedule Website 
         block navBar 
-               a(href='/signup')
-                col-md-3 Sign Up
-               a(href="/login")
-                col-md-3 Login
-               a(href="/")
-                col-md-3 Home 
+               a(href='/schedule')
+                col-md-3 Schedules
+               a(href="/user")
+                col-md-3 User Details
+               button(type='submit') LOGOUT 
                              
       img(class ='layout',src="logo_mrcoffee.png", alt="Logo of Cafe")            
                 
         
-      block content 
-      br
-      hr
-      footer  
-        p copyright &copy; 2021 
+       

@@ -84,16 +84,16 @@ a{
   width:70%;
   border:2px solid;
   margin-bottom: 10%;
-  margin-top: 5px;
   margin-left:15%;
   background-color: #f2f2f2;
   text-align: center;
 }
 
 h2{
-  margin-top: 20px;
+  margin-top: 50px;
   text-align: center;
   color: #04AA6D;
+  text-shadow: #ccc;
 }
 
 .user-form{

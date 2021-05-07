@@ -113,7 +113,29 @@ app.get('/schedule',(req,res) =>{
     });
 });
 
-
+app.post('/schedule',(req,res)=>{
+    let userId = req.body.ID_user;
+    let day = req.body.day;
+    let start = req.body.start;
+    let end = req.body.end;
+      db.query('INSERT INTO schedule(ID_user,day,start,end) VALUES(?,?,?,?)',
+      [userId,day,start,end],function(err)
+      {
+              if (err) {
+                return console.log(err.message);
+              }
+              console.log("New schedule has been added");
+              res.render('schedule',{
+                  userId:userId,
+                  day:day,
+                  start_at:start,
+                  end_at:end,
+                  days
+              });
+              
+      
+     });
+    });
 /*app.get('/user/new', function (req, res) {
     res.render('user',{title: "Add New User"});
    });
