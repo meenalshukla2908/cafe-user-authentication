@@ -148,6 +148,10 @@ app.get('/user', function (req, res) {
        res.render('user',{users:results,title: "User Details"});
    });
 });
+
+app.get('/logout',(req,res)=>{
+  res.render('login');
+});
     /*app.post('/user',(req,res)=>{
         let surname = req.body.surname;
         let firstname = req.body.firstname;
