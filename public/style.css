@@ -69,11 +69,8 @@ button {
   font-weight: 300;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .logout{
-  float:right;
-  margin-top: 10px;
   color: #04AA6D;
-  width: 100px;
-  height: 20px;
+  
 }
 a{
   float:right;

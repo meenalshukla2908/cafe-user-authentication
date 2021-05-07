@@ -9,13 +9,16 @@ var sha256 = require('js-sha256');
 var session = require('express-session');
 var flash = require('connect-flash');
 
-app.use(cookieParser());
 app.use(session({
     secret: 'cafecoffee', 
     cookie: { maxAge: 60000 },
     resave: true,    
-    saveUninitialized: true 
+    saveUninitialized: true,
+    cookie: {
+        expires: 600000
+    }
   }));
+  app.use(cookieParser());
 app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({
@@ -59,6 +62,7 @@ var userEmail=data[0],
      if(results) {
         req.session.regenerate(function() {
             req.session.login = true;
+            //res.cookie('AUTHTOKEN',)
             res.redirect('/schedule');
             });
         } else {
@@ -114,7 +118,7 @@ app.get('/schedule',(req,res) =>{
 });
 
 app.post('/schedule',(req,res)=>{
-    let userId = req.body.ID_user;
+    let userId = req.body.userId;
     let day = req.body.day;
     let start = req.body.start;
     let end = req.body.end;
@@ -136,10 +140,15 @@ app.post('/schedule',(req,res)=>{
       
      });
     });
-/*app.get('/user/new', function (req, res) {
-    res.render('user',{title: "Add New User"});
+app.get('/user', function (req, res) {
+    let sql = 'SELECT surname,firstname,email FROM users ';
+     db.query(sql,(err,results) =>{
+        if(err) throw err;
+         console.log(results);
+       res.render('user',{users:results,title: "User Details"});
    });
-    app.post('/user/new',(req,res)=>{
+});
+    /*app.post('/user',(req,res)=>{
         let surname = req.body.surname;
         let firstname = req.body.firstname;
         let email = req.body.email;

@@ -6,13 +6,10 @@ block content
     form(class ='scheduleForm',action='http://localhost:3000/schedule', method='POST') 
         label(for='ID_user') User Id:
         input(name='userId', value='', type='number')
-        p
         label(for='day') Day:
         input(name='day', value='',min='1',max='7', type='number')
-        p
         label(for='start_at') Start at:
         input(name='start_at', value='00:00:00', type='time',step='10')
-        p
         label(for='end_at') End at: 
         input(name='end_at',value='00:00:00', type='time',step='10')
         p
@@ -32,7 +29,10 @@ block content
       each schedule in schedules
         tr
           td=schedule.ID_user
-          td=schedule.day
+          td=days[schedule.day-1]
           td=schedule.start
           td=schedule.end
         br
+
+  footer  
+      p copyright &copy; 2021             
